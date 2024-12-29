@@ -67,6 +67,7 @@ module.exports = (_, argv) => ({
       remotes: {},
       exposes: {
         './UsersTestControl': './src/components/UsersTestControl.js',
+        './Login': './src/components/Login.js',        
       },
       shared: {
         ...deps,
@@ -81,9 +82,6 @@ module.exports = (_, argv) => ({
           requiredVersion: deps["react-dom"],
         },
       },
-    }),
-    new HtmlWebPackPlugin({
-      template: "./src/index.html",
     }),
     new Dotenv()
   ],

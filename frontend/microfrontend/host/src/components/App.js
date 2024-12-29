@@ -1,4 +1,4 @@
-import React, { lazy }  from "react";
+import React, { lazy, Suspense }  from "react";
 import { Route, useHistory, Switch } from "react-router-dom";
 import Header from "./Header";
 import Main from "./Main";
@@ -11,7 +11,6 @@ import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 import Register from "./Register";
-import Login from "./Login";
 import InfoTooltip from "./InfoTooltip";
 import ProtectedRoute from "./ProtectedRoute";
 import * as auth from "../utils/auth.js";
@@ -21,6 +20,11 @@ import * as auth from "../utils/auth.js";
 const UsersTestControl = lazy(() => import('auth_microfrontend/UsersTestControl').catch(() => {
     return { default: () => <div className='error'>Component is not available!</div> };
   })
+);
+
+const Login = lazy(() => import('auth_microfrontend/Login').catch(() => {
+  return { default: () => <div className='error'>Component is not available!</div> };
+})
 );
 
 
@@ -189,7 +193,6 @@ function App() {
     // В компонент App внедрён контекст через CurrentUserContext.Provider
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page__content">
-       <UsersTestControl></UsersTestControl>
         <Header email={email} onSignOut={onSignOut} />
         <Switch>
           <ProtectedRoute
@@ -209,7 +212,9 @@ function App() {
             <Register onRegister={onRegister} />
           </Route>
           <Route path="/signin">
-            <Login onLogin={onLogin} />
+            <Suspense>
+              <Login onLogin={onLogin} />
+            </Suspense>
           </Route>
         </Switch>
         <Footer />

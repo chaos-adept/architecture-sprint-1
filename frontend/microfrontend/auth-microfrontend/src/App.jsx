@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import Login from "./components/Login";
 import "./index.css";
+
+const onLogin = () => {
+
+};
 
 const App = () => (
   <div className="container">
@@ -9,6 +13,7 @@ const App = () => (
     <div>Framework: react</div>
     <div>Language: JavaScript</div>
     <div>CSS: Empty CSS</div>
+    <Login onLogin={onLogin}></Login>
   </div>
 );
 const rootElement = document.getElementById("app")
