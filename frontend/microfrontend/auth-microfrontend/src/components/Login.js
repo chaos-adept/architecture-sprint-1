@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../blocks/auth-form/auth-form.css';
 import '../blocks/login/login.css';
 import { login } from '../utils/auth';
 
@@ -10,9 +10,10 @@ function Login ({ onLogin }){
   function handleSubmit(e){
     e.preventDefault();
 
-    login(email, password).then((detail) => {
+    login(email, password).then(({data}) => {
+      console.log("handle login", data);
       dispatchEvent(new CustomEvent("jwt-change", {
-        token: detail.token
+        detail: { token: data.token }
       }));
       dispatchEvent(new CustomEvent("on-login", {
         email

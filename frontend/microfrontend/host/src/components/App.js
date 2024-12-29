@@ -10,7 +10,6 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
-import Register from "./Register";
 import InfoTooltip from "./InfoTooltip";
 import ProtectedRoute from "./ProtectedRoute";
 import * as auth from "../utils/auth.js";
@@ -24,8 +23,11 @@ const UsersTestControl = lazy(() => import('auth_microfrontend/UsersTestControl'
 
 const Login = lazy(() => import('auth_microfrontend/Login').catch(() => {
   return { default: () => <div className='error'>Component is not available!</div> };
-})
-);
+}));
+
+const Register = lazy(() => import('auth_microfrontend/Register').catch(() => {
+  return { default: () => <div className='error'>Component is not available!</div> };
+}));
 
 
 function App() {
@@ -153,20 +155,11 @@ function App() {
       .catch((err) => console.log(err));
   }
 
-  function onRegister({ email, password }) {
-    auth
-      .register(email, password)
-      .then((res) => {
-        setTooltipStatus("success");
-        setIsInfoToolTipOpen(true);
-        history.push("/signin");
-      })
-      .catch((err) => {
-        setTooltipStatus("fail");
-        setIsInfoToolTipOpen(true);
-      });
+  function onHandleRegister() {
+    setTooltipStatus("success");
+    setIsInfoToolTipOpen(true);
+    history.push("/signin");
   }
-
 
   function onSignOut() {
     // при вызове обработчика onSignOut происходит удаление jwt
@@ -178,8 +171,10 @@ function App() {
 
   const [jwt, setJwt] = useState('');
  
-  const handleJwtChange = event => { // Эта функция получает нотификации о событиях изменения jwt
-    setJwt(event.token);
+  const handleJwtChange = ({detail}) => { // Эта функция получает нотификации о событиях изменения jwt
+    console.log("handleJwtChange", detail);
+    setJwt(detail.token);
+    localStorage.setItem("jwt", detail.token);
   }
 
   useEffect(() => {
@@ -193,19 +188,29 @@ function App() {
     history.push("/");
   }
 
-  function handleFailedLogin({ error }) {
+  function handleFailedOperation({ error }) {
     setTooltipStatus("fail");
     setIsInfoToolTipOpen(true);
   }
 
   useEffect(() => {
-    addEventListener("on-login", handleOnLogin); // Этот код добавляет подписку на нотификации о событиях изменения localStorage
-    return () => removeEventListener("on-login", handleOnLogin) // Этот код удаляет подписку на нотификации о событиях изменения localStorage, когда в ней пропадает необходимость
+    addEventListener("on-login", handleOnLogin);
+    return () => removeEventListener("on-login", handleOnLogin)
   }, []);
 
   useEffect(() => {
-    addEventListener("on-error-login", handleFailedLogin); // Этот код добавляет подписку на нотификации о событиях изменения localStorage
-    return () => removeEventListener("on-error-login", handleFailedLogin) // Этот код удаляет подписку на нотификации о событиях изменения localStorage, когда в ней пропадает необходимость
+    addEventListener("on-error-login", handleFailedOperation); 
+    return () => removeEventListener("on-error-login", handleFailedOperation)
+  }, []);
+  
+  useEffect(() => {
+    addEventListener("on-register", onHandleRegister);
+    return () => removeEventListener("on-register", onHandleRegister) 
+  }, []);
+
+  useEffect(() => {
+    addEventListener("on-error-register", handleFailedOperation); 
+    return () => removeEventListener("on-error-register", handleFailedOperation)
   }, []);
 
   return (
@@ -228,7 +233,9 @@ function App() {
             loggedIn={isLoggedIn}
           />
           <Route path="/signup">
-            <Register onRegister={onRegister} />
+            <Suspense>
+              <Register />
+            </Suspense>
           </Route>
           <Route path="/signin">
             <Suspense>

@@ -1,11 +1,11 @@
 class Api {
-  constructor({ address, token, groupId }) {
-    // стандартная реализация -- объект options
-    this._token = token;
-    this._groupId = groupId;
-    this._address = address;
 
-    // Запросы в примере работы выполняются к старому Api, в новом URL изменены.
+  get _token() {
+    return localStorage.getItem("jwt");
+  }
+
+  constructor({ address }) {
+    this._address = address;
   }
 
   getAppInfo() {

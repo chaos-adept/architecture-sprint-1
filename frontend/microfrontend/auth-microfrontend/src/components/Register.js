@@ -1,17 +1,25 @@
 import React from 'react';
+import '../blocks/auth-form/auth-form.css';
 import { Link } from 'react-router-dom';
+import { register } from '../utils/auth';
 
-function Register ({ onRegister }){
+function Register ({}){
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
   function handleSubmit(e){
     e.preventDefault();
-    const userData = {
-      email,
-      password
-    }
-    onRegister(userData);
+
+    register(email, password)
+    .then((res) => {
+      dispatchEvent(new CustomEvent("on-register", {
+        email
+      }));  
+    })
+    .catch((err) => {
+      setTooltipStatus("fail");
+      setIsInfoToolTipOpen(true);
+    });
   }
   return (
     <div className="auth-form">
@@ -31,7 +39,7 @@ function Register ({ onRegister }){
         </div>
         <div className="auth-form__wrapper">
           <button className="auth-form__button" type="submit">Зарегистрироваться</button>
-          <p className="auth-form__text">Уже зарегистрированы? <Link className="auth-form__link" to="/signin">Войти</Link></p>
+          <p className="auth-form__text">Уже зарегистрированы? <a className="auth-form__link" href="/signin">Войти</a></p>
         </div>
       </form>
     </div>
