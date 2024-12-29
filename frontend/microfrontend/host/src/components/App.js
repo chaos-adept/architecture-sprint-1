@@ -1,4 +1,4 @@
-import React, { lazy, Suspense }  from "react";
+import React, { lazy, Suspense, useState, useEffect }  from "react";
 import { Route, useHistory, Switch } from "react-router-dom";
 import Header from "./Header";
 import Main from "./Main";
@@ -167,19 +167,6 @@ function App() {
       });
   }
 
-  function onLogin({ email, password }) {
-    auth
-      .login(email, password)
-      .then((res) => {
-        setIsLoggedIn(true);
-        setEmail(email);
-        history.push("/");
-      })
-      .catch((err) => {
-        setTooltipStatus("fail");
-        setIsInfoToolTipOpen(true);
-      });
-  }
 
   function onSignOut() {
     // при вызове обработчика onSignOut происходит удаление jwt
@@ -188,6 +175,38 @@ function App() {
     // После успешного вызова обработчика onSignOut происходит редирект на /signin
     history.push("/signin");
   }
+
+  const [jwt, setJwt] = useState('');
+ 
+  const handleJwtChange = event => { // Эта функция получает нотификации о событиях изменения jwt
+    setJwt(event.token);
+  }
+
+  useEffect(() => {
+    addEventListener("jwt-change", handleJwtChange); // Этот код добавляет подписку на нотификации о событиях изменения localStorage
+    return () => removeEventListener("jwt-change", handleJwtChange) // Этот код удаляет подписку на нотификации о событиях изменения localStorage, когда в ней пропадает необходимость
+  }, []);
+
+  function handleOnLogin({ email }) {
+    setIsLoggedIn(true);
+    setEmail(email);
+    history.push("/");
+  }
+
+  function handleFailedLogin({ error }) {
+    setTooltipStatus("fail");
+    setIsInfoToolTipOpen(true);
+  }
+
+  useEffect(() => {
+    addEventListener("on-login", handleOnLogin); // Этот код добавляет подписку на нотификации о событиях изменения localStorage
+    return () => removeEventListener("on-login", handleOnLogin) // Этот код удаляет подписку на нотификации о событиях изменения localStorage, когда в ней пропадает необходимость
+  }, []);
+
+  useEffect(() => {
+    addEventListener("on-error-login", handleFailedLogin); // Этот код добавляет подписку на нотификации о событиях изменения localStorage
+    return () => removeEventListener("on-error-login", handleFailedLogin) // Этот код удаляет подписку на нотификации о событиях изменения localStorage, когда в ней пропадает необходимость
+  }, []);
 
   return (
     // В компонент App внедрён контекст через CurrentUserContext.Provider
@@ -213,7 +232,7 @@ function App() {
           </Route>
           <Route path="/signin">
             <Suspense>
-              <Login onLogin={onLogin} />
+              <Login />
             </Suspense>
           </Route>
         </Switch>

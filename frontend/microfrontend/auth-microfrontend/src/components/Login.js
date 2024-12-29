@@ -1,6 +1,7 @@
 import React from 'react';
 
 import '../blocks/login/login.css';
+import { login } from '../utils/auth';
 
 function Login ({ onLogin }){
   const [email, setEmail] = React.useState('');
@@ -8,12 +9,21 @@ function Login ({ onLogin }){
 
   function handleSubmit(e){
     e.preventDefault();
-    const userData = {
-      email,
-      password
-    }
-    onLogin(userData);
+
+    login(email, password).then((detail) => {
+      dispatchEvent(new CustomEvent("jwt-change", {
+        token: detail.token
+      }));
+      dispatchEvent(new CustomEvent("on-login", {
+        email
+      }));      
+    }).catch(error => {
+      dispatchEvent(new CustomEvent("on-error-login", {
+        error
+      }));
+    });
   }
+
   return (
     <div className="auth-form">
       <form className="auth-form__form" onSubmit={handleSubmit}>
