@@ -8,7 +8,7 @@ const CardsGrid = lazy(() => import('cards_microfrontend/CardsGrid').catch(() =>
   return { default: () => <div className='error'>Component is not available!</div> };
 }));
 
-const Main = ({ currentUser, onEditProfile, onAddPlace, onEditAvatar, onCardClick }) => {
+const Main = ({ currentUser, onEditProfile, onAddPlace, onEditAvatar }) => {
   return (
     <main className="content">
       <Suspense>
@@ -20,8 +20,7 @@ const Main = ({ currentUser, onEditProfile, onAddPlace, onEditAvatar, onCardClic
       </Suspense>
       <Suspense>
         <CardsGrid 
-          currentUser={currentUser}
-          onCardClick={onCardClick} />
+          currentUser={currentUser}/>
       </Suspense>
     </main>
   );

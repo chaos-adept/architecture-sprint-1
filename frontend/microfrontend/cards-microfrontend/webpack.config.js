@@ -66,7 +66,8 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        './CardsGrid': './src/components/CardsGrid.js'  
+        './CardsGrid': './src/components/CardsGrid.js',
+        './AddPlacePopup': './src/components/AddPlacePopup.js'  
       },
       shared: {
         ...deps,

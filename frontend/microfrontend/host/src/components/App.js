@@ -3,10 +3,8 @@ import { Route, useHistory, Switch } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
-import ImagePopup from "./ImagePopup";
 import api from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
-import AddPlacePopup from "./AddPlacePopup";
 import InfoTooltip from "./InfoTooltip";
 import ProtectedRoute from "./ProtectedRoute";
 import Main from "./Main";
@@ -26,6 +24,10 @@ const EditProfilePopup = lazy(() => import('profile_microfrontend/EditProfilePop
 }));
 
 const EditAvatarPopup = lazy(() => import('profile_microfrontend/EditAvatarPopup').catch(() => {
+  return { default: () => <div className='error'>Component is not available!</div> };
+}));
+
+const AddPlacePopup = lazy(() => import('cards_microfrontend/AddPlacePopup').catch(() => {
   return { default: () => <div className='error'>Component is not available!</div> };
 }));
 
@@ -106,11 +108,6 @@ function App() {
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
     setIsInfoToolTipOpen(false);
-    setSelectedCard(null);
-  }
-
-  function handleCardClick(card) {
-    setSelectedCard(card);
   }
 
   function handleUpdateUser({ detail }) {
@@ -118,15 +115,9 @@ function App() {
     closeAllPopups();
   }
 
-
-  function handleAddPlaceSubmit(newCard) {
-    api
-      .addCard(newCard)
-      .then((newCardFull) => {
-        setCards([newCardFull, ...cards]);
-        closeAllPopups();
-      })
-      .catch((err) => console.log(err));
+  function handleAddPlaceSubmit(e) {
+    e.preventDefault();
+    dispatchEvent(new CustomEvent("on-submit-new-place"));
   }
 
   function onHandleRegister() {
@@ -202,14 +193,13 @@ function App() {
             path="/"
             loggedIn={isLoggedIn}
           >
-              <Main
-                currentUser={currentUser}
-                onEditProfile={handleEditProfileClick}
-                onAddPlace={handleAddPlaceClick}
-                onEditAvatar={handleEditAvatarClick}
-                onCardClick={handleCardClick}
-              />
-            </ProtectedRoute>
+            <Main
+              currentUser={currentUser}
+              onEditProfile={handleEditProfileClick}
+              onAddPlace={handleAddPlaceClick}
+              onEditAvatar={handleEditAvatarClick}
+            />
+          </ProtectedRoute>
           <Route path="/signup">
             <Suspense>
               <Register />
@@ -232,11 +222,17 @@ function App() {
               <EditProfilePopup currentUser={currentUser} />
             </Suspense>
         </PopupWithForm>
-        <AddPlacePopup
-          isOpen={isAddPlacePopupOpen}
-          onAddPlace={handleAddPlaceSubmit}
-          onClose={closeAllPopups}
-        />
+        <PopupWithForm
+          isOpen={isAddPlacePopupOpen} 
+          onSubmit={handleAddPlaceSubmit} 
+          onClose={closeAllPopups} 
+          title="Новое место" 
+          name="new-card"
+        >   
+          <Suspense>
+            <AddPlacePopup onPlaceAdded={closeAllPopups} />
+          </Suspense>
+        </PopupWithForm>
         <PopupWithForm title="Вы уверены?" name="remove-card" buttonText="Да" />
         <PopupWithForm
           isOpen={isEditAvatarPopupOpen}
@@ -252,7 +248,6 @@ function App() {
                     />
           </Suspense>
         </PopupWithForm>
-        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
         <InfoTooltip
           isOpen={isInfoToolTipOpen}
           onClose={closeAllPopups}

@@ -3,6 +3,7 @@ import Card from './Card';
 import api from '../utils/api';
 import '../blocks/places/places.css';
 import '../blocks/card/card.css';
+import ImagePopup from "./ImagePopup";
 
 function CardsGrid({ currentUser, onCardClick }) {
 
@@ -38,6 +39,23 @@ function CardsGrid({ currentUser, onCardClick }) {
         .catch((err) => console.log(err));
     }
 
+    function onAddNewPlace({detail}) {
+      
+      setCards([detail, ...cards]);
+    }
+
+    const [selectedCard, setSelectedCard] = React.useState(null);
+
+    function handleCardClick(card) {
+      setSelectedCard(card);
+      onCardClick(card)
+    }
+
+    React.useEffect(() => {
+      addEventListener("on-new-place-added", onAddNewPlace);
+      return () => removeEventListener("on-new-place-added", onAddNewPlace);
+    });
+
 
     return (
         <section className="places page__section">
@@ -47,12 +65,13 @@ function CardsGrid({ currentUser, onCardClick }) {
               currentUser={currentUser}
               key={card._id}
               card={card}
-              onCardClick={onCardClick}
+              onCardClick={handleCardClick}
               onCardLike={handleCardLike}
               onCardDelete={handleCardDelete}
             />
           ))}
         </ul>
+        <ImagePopup card={selectedCard} onClose={() => setSelectedCard(null)} />
       </section>
     );
 }
