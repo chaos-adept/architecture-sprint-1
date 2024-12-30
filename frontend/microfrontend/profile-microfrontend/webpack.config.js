@@ -67,7 +67,8 @@ module.exports = (_, argv) => ({
       remotes: {},
       exposes: {
         './EditProfilePopup': './src/components/EditProfilePopup.js',  
-        './EditAvatarPopup': './src/components/EditAvatarPopup.js',          
+        './EditAvatarPopup': './src/components/EditAvatarPopup.js', 
+        './ProfileInlineBlock': './src/components/ProfileInlineBlock.js', 
       },
       shared: {
         ...deps,

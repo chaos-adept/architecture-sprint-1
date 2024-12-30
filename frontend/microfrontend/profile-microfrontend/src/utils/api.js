@@ -8,44 +8,6 @@ class Api {
     this._address = address;
   }
 
-  getAppInfo() {
-    return Promise.all([this.getCardList(), this.getUserInfo()]);
-  }
-
-  getCardList() {
-    return fetch(`${this._address}/cards`, {
-      headers: {
-        authorization: this._token,
-      },
-    })
-      .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
-  }
-
-  addCard({ name, link }) {
-    return fetch(`${this._address}/cards`, {
-      method: 'POST',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name,
-        link,
-      }),
-    })
-      .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
-  }
-
-  removeCard(cardID) {
-    return fetch(`${this._address}/cards/${cardID}`, {
-      method: 'DELETE',
-      headers: {
-        authorization: this._token,
-      },
-    })
-      .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
-  }
-
   getUserInfo() {
     return fetch(`${this._address}/users/me`, {
       headers: {

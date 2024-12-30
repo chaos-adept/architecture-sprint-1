@@ -30,6 +30,10 @@ const EditAvatarPopup = lazy(() => import('profile_microfrontend/EditAvatarPopup
   return { default: () => <div className='error'>Component is not available!</div> };
 }));
 
+const ProfileInlineBlock = lazy(() => import('profile_microfrontend/ProfileInlineBlock').catch(() => {
+  return { default: () => <div className='error'>Component is not available!</div> };
+}));
+
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -57,6 +61,7 @@ function App() {
     api
       .getAppInfo()
       .then(([cardData, userData]) => {
+        console.log(userData.data);
         setCurrentUser(userData.data);
         setCards(cardData.data);
       })
@@ -224,6 +229,7 @@ function App() {
             exact
             path="/"
             component={Main}
+            ProfileInlineBlock={(props) => <Suspense> <ProfileInlineBlock currentUser={currentUser} {...props} /> </Suspense>}
             cards={cards}
             onEditProfile={handleEditProfileClick}
             onAddPlace={handleAddPlaceClick}
@@ -262,16 +268,19 @@ function App() {
         />
         <PopupWithForm title="Вы уверены?" name="remove-card" buttonText="Да" />
         <PopupWithForm
-        isOpen={isEditAvatarPopupOpen} onSubmit={handleSubmitAvatarClick} onClose={closeAllPopups} title="Обновить аватар" name="edit-avatar">
+          isOpen={isEditAvatarPopupOpen}
+          onSubmit={handleSubmitAvatarClick}
+          onClose={closeAllPopups}
+          title="Обновить аватар"
+          name="edit-avatar"
+        >
           <Suspense>
             <EditAvatarPopup
                       isOpen={isEditAvatarPopupOpen}
                       onClose={closeAllPopups}
                     />
           </Suspense>
-      </PopupWithForm>
-        
-
+        </PopupWithForm>
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
         <InfoTooltip
           isOpen={isInfoToolTipOpen}
