@@ -2,12 +2,10 @@ import React from 'react';
 import '../blocks/profile/profile.css';
 
 function ProfileInlineBlock({ currentUser, onEditProfile, onAddPlace, onEditAvatar }) {
+    
+  const imageStyle = { backgroundImage: `url(${currentUser.avatar})` };
 
-    console.log("currentUser", currentUser);
-
-  const imageStyle = currentUser && { backgroundImage: `url(${currentUser.avatar})` };
-
-  return currentUser && (
+  return (
       <section className="profile page__section">
         <div className="profile__image" onClick={onEditAvatar} style={imageStyle}></div>
         <div className="profile__info">

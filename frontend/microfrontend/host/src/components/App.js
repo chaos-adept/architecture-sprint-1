@@ -21,7 +21,6 @@ const Register = lazy(() => import('auth_microfrontend/Register').catch(() => {
   return { default: () => <div className='error'>Component is not available!</div> };
 }));
 
-
 const EditProfilePopup = lazy(() => import('profile_microfrontend/EditProfilePopup').catch(() => {
   return { default: () => <div className='error'>Component is not available!</div> };
 }));
@@ -33,7 +32,6 @@ const EditAvatarPopup = lazy(() => import('profile_microfrontend/EditAvatarPopup
 const ProfileInlineBlock = lazy(() => import('profile_microfrontend/ProfileInlineBlock').catch(() => {
   return { default: () => <div className='error'>Component is not available!</div> };
 }));
-
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -53,6 +51,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   //В компоненты добавлены новые стейт-переменные: email — в компонент App
   const [email, setEmail] = React.useState("");
+
+  const [jwt, setJwt] = useState('');
 
   const history = useHistory();
 
@@ -84,7 +84,7 @@ function App() {
           console.log(err);
         });
     }
-  }, [history]);
+  }, [history, jwt]);
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
@@ -170,8 +170,6 @@ function App() {
     history.push("/signin");
   }
 
-  const [jwt, setJwt] = useState('');
- 
   const handleJwtChange = ({detail}) => { // Эта функция получает нотификации о событиях изменения jwt
     console.log("handleJwtChange", detail);
     setJwt(detail.token);
@@ -189,11 +187,12 @@ function App() {
     history.push("/");
   }
 
-  function handleFailedOperation({ error }) {
+  function handleFailedOperation({}) {
     setTooltipStatus("fail");
     setIsInfoToolTipOpen(true);
   }
 
+  //todo подумать над тем что бы убрать event, и перевести на калббеки как более простые решения
   useEffect(() => {
     addEventListener("on-login", handleOnLogin);
     return () => removeEventListener("on-login", handleOnLogin)
@@ -258,7 +257,7 @@ function App() {
           onClose={closeAllPopups}
         >
             <Suspense>
-              <EditProfilePopup />
+              <EditProfilePopup currentUser={currentUser} />
             </Suspense>
         </PopupWithForm>
         <AddPlacePopup

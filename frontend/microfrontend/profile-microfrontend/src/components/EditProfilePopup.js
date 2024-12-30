@@ -3,10 +3,10 @@ import api from "../utils/api";
 
 //fixme есть проблема со стилями, микрофронтенд определяет стили, которые находятся в другом модуле, надо задать этот вопрос наверное в пачке
 //fixme другая проблема в том, что сюда передеается юзер через пропы, что сильно увеличивает связанность с хостом, надо подумать как это развязать
-function EditProfilePopup({ user }) {
-  const [name, setName] = React.useState('');
-  const [description, setDescription] = React.useState('');
-
+function EditProfilePopup({currentUser}) {
+  const [name, setName] = React.useState(currentUser.name);
+  const [description, setDescription] = React.useState(currentUser.about);
+  
   function handleNameChange(e) {
     setName(e.target.value);
   }
@@ -14,15 +14,6 @@ function EditProfilePopup({ user }) {
   function handleDescriptionChange(e) {
     setDescription(e.target.value);
   }
-
-  const currentUser = user;
-
-  React.useEffect(() => {
-    if (currentUser) {
-      setName(currentUser.name);
-      setDescription(currentUser.about);
-    }
-  }, [currentUser]);
 
   function handleSubmit(e) {
     e.preventDefault();
