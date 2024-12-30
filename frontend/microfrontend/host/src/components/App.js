@@ -7,7 +7,6 @@ import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 import api from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
-import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 import InfoTooltip from "./InfoTooltip";
 import ProtectedRoute from "./ProtectedRoute";
@@ -24,6 +23,10 @@ const Register = lazy(() => import('auth_microfrontend/Register').catch(() => {
 
 
 const EditProfilePopup = lazy(() => import('profile_microfrontend/EditProfilePopup').catch(() => {
+  return { default: () => <div className='error'>Component is not available!</div> };
+}));
+
+const EditAvatarPopup = lazy(() => import('profile_microfrontend/EditAvatarPopup').catch(() => {
   return { default: () => <div className='error'>Component is not available!</div> };
 }));
 
@@ -54,7 +57,7 @@ function App() {
     api
       .getAppInfo()
       .then(([cardData, userData]) => {
-        setCurrentUser(userData);
+        setCurrentUser(userData.data);
         setCards(cardData.data);
       })
       .catch((err) => console.log(err));
@@ -95,6 +98,11 @@ function App() {
     dispatchEvent(new CustomEvent("on-submit-profile"));
   }
 
+  function handleSubmitAvatarClick(e) {
+    e.preventDefault();
+    dispatchEvent(new CustomEvent("on-submit-avatar"));
+  }
+
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
@@ -110,17 +118,6 @@ function App() {
   function handleUpdateUser({ detail }) {
     setCurrentUser(detail);
     closeAllPopups();
-  }
-
-  function handleUpdateAvatar(avatarUpdate) {
-    console.log("handleUpdateAvatar", avatarUpdate);
-    api
-      .setUserAvatar(avatarUpdate)
-      .then((newUserData) => {
-        setCurrentUser(newUserData);
-        closeAllPopups();
-      })
-      .catch((err) => console.log(err));
   }
 
   function handleCardLike(card) {
@@ -264,11 +261,17 @@ function App() {
           onClose={closeAllPopups}
         />
         <PopupWithForm title="Вы уверены?" name="remove-card" buttonText="Да" />
-        <EditAvatarPopup
-          isOpen={isEditAvatarPopupOpen}
-          onUpdateAvatar={handleUpdateAvatar}
-          onClose={closeAllPopups}
-        />
+        <PopupWithForm
+        isOpen={isEditAvatarPopupOpen} onSubmit={handleSubmitAvatarClick} onClose={closeAllPopups} title="Обновить аватар" name="edit-avatar">
+          <Suspense>
+            <EditAvatarPopup
+                      isOpen={isEditAvatarPopupOpen}
+                      onClose={closeAllPopups}
+                    />
+          </Suspense>
+      </PopupWithForm>
+        
+
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
         <InfoTooltip
           isOpen={isInfoToolTipOpen}
