@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import PopupWithForm from './PopupWithForm';
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import api from "../utils/api";
 
-function EditProfilePopup({ user, onUpdateUser }) {
+//fixme есть проблема со стилями, микрофронтенд определяет стили, которые находятся в другом модуле, надо задать этот вопрос наверное в пачке
+//fixme другая проблема в том, что сюда передеается юзер через пропы, что сильно увеличивает связанность с хостом, надо подумать как это развязать
+function EditProfilePopup({ user }) {
   const [name, setName] = React.useState('');
   const [description, setDescription] = React.useState('');
 
@@ -34,9 +34,7 @@ function EditProfilePopup({ user, onUpdateUser }) {
         detail: data}));
     })
     .catch((err) => console.log(err));
-
   }
-
 
   useEffect(()=>{
     addEventListener("on-submit-profile", handleSubmit);

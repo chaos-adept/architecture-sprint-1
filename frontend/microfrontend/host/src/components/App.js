@@ -7,7 +7,6 @@ import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 import api from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
-import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 import InfoTooltip from "./InfoTooltip";
@@ -15,17 +14,16 @@ import ProtectedRoute from "./ProtectedRoute";
 import * as auth from "../utils/auth.js";
 
 
-
-const UsersTestControl = lazy(() => import('auth_microfrontend/UsersTestControl').catch(() => {
-    return { default: () => <div className='error'>Component is not available!</div> };
-  })
-);
-
 const Login = lazy(() => import('auth_microfrontend/Login').catch(() => {
   return { default: () => <div className='error'>Component is not available!</div> };
 }));
 
 const Register = lazy(() => import('auth_microfrontend/Register').catch(() => {
+  return { default: () => <div className='error'>Component is not available!</div> };
+}));
+
+
+const EditProfilePopup = lazy(() => import('profile_microfrontend/EditProfilePopup').catch(() => {
   return { default: () => <div className='error'>Component is not available!</div> };
 }));
 
@@ -256,9 +254,9 @@ function App() {
           onSubmit={handleSubmitProfileClick}
           onClose={closeAllPopups}
         >
-          <EditProfilePopup
-            user={currentUser}
-          />
+            <Suspense>
+              <EditProfilePopup />
+            </Suspense>
         </PopupWithForm>
         <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
