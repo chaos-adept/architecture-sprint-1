@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PopupWithForm from './PopupWithForm';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import api from "../utils/api";
 
-function EditProfilePopup({ isOpen, onUpdateUser, onClose }) {
+function EditProfilePopup({ user, onUpdateUser }) {
   const [name, setName] = React.useState('');
   const [description, setDescription] = React.useState('');
 
@@ -14,7 +15,7 @@ function EditProfilePopup({ isOpen, onUpdateUser, onClose }) {
     setDescription(e.target.value);
   }
 
-  const currentUser = React.useContext(CurrentUserContext);
+  const currentUser = user;
 
   React.useEffect(() => {
     if (currentUser) {
@@ -26,16 +27,24 @@ function EditProfilePopup({ isOpen, onUpdateUser, onClose }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    onUpdateUser({
-      name,
-      about: description,
-    });
+    api
+    .setUserInfo({ name, about:description })
+    .then(({data}) => {
+      dispatchEvent(new CustomEvent("on-profile-updated", {
+        detail: data}));
+    })
+    .catch((err) => console.log(err));
+
   }
 
+
+  useEffect(()=>{
+    addEventListener("on-submit-profile", handleSubmit);
+    return () => removeEventListener("on-submit-profile", handleSubmit);
+  });
+
   return (
-    <PopupWithForm
-      isOpen={isOpen} onSubmit={handleSubmit} onClose={onClose} title="Редактировать профиль" name="edit"
-    >
+      <>
       <label className="popup__label">
         <input type="text" name="userName" id="owner-name"
                className="popup__input popup__input_type_name" placeholder="Имя"
@@ -50,7 +59,7 @@ function EditProfilePopup({ isOpen, onUpdateUser, onClose }) {
                value={description || ''} onChange={handleDescriptionChange} />
         <span className="popup__error" id="owner-description-error"></span>
       </label>
-    </PopupWithForm>
+      </>
   );
 }
 

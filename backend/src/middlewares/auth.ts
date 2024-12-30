@@ -8,10 +8,17 @@ interface JwtPayload {
 }
 
 const auth = (req: Request, res: Response, next: NextFunction) => {
-  const token = req.headers["Authorization"];
-  console.log(token);
+
+
+
   let payload: JwtPayload | null = null;
   try {
+    const token:any = req.headers.authorization;
+    console.log("auth", token, req.headers);
+    if (token === undefined) {
+      throw new Error('no authorization header');
+    }
+    console.log(token);
     payload = jwt.verify(token, JWT_SECRET) as JwtPayload;
     req.user = payload;
     next();

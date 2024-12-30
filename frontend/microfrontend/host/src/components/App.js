@@ -57,7 +57,7 @@ function App() {
       .getAppInfo()
       .then(([cardData, userData]) => {
         setCurrentUser(userData);
-        setCards(cardData);
+        setCards(cardData.data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -92,6 +92,11 @@ function App() {
     setIsEditAvatarPopupOpen(true);
   }
 
+  function handleSubmitProfileClick(e) {
+    e.preventDefault();
+    dispatchEvent(new CustomEvent("on-submit-profile"));
+  }
+
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
@@ -104,17 +109,13 @@ function App() {
     setSelectedCard(card);
   }
 
-  function handleUpdateUser(userUpdate) {
-    api
-      .setUserInfo(userUpdate)
-      .then((newUserData) => {
-        setCurrentUser(newUserData);
-        closeAllPopups();
-      })
-      .catch((err) => console.log(err));
+  function handleUpdateUser({ detail }) {
+    setCurrentUser(detail);
+    closeAllPopups();
   }
 
   function handleUpdateAvatar(avatarUpdate) {
+    console.log("handleUpdateAvatar", avatarUpdate);
     api
       .setUserAvatar(avatarUpdate)
       .then((newUserData) => {
@@ -213,6 +214,11 @@ function App() {
     return () => removeEventListener("on-error-register", handleFailedOperation)
   }, []);
 
+  useEffect(() => {
+    addEventListener("on-profile-updated", handleUpdateUser);
+    return () => removeEventListener("on-profile-updated", handleUpdateUser) 
+  }, []);
+
   return (
     // В компонент App внедрён контекст через CurrentUserContext.Provider
     <CurrentUserContext.Provider value={currentUser}>
@@ -244,11 +250,16 @@ function App() {
           </Route>
         </Switch>
         <Footer />
-        <EditProfilePopup
-          isOpen={isEditProfilePopupOpen}
-          onUpdateUser={handleUpdateUser}
+        <PopupWithForm
+          isOpen={isEditProfilePopupOpen} 
+          title="Редактировать профиль" name="edit"
+          onSubmit={handleSubmitProfileClick}
           onClose={closeAllPopups}
-        />
+        >
+          <EditProfilePopup
+            user={currentUser}
+          />
+        </PopupWithForm>
         <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
           onAddPlace={handleAddPlaceSubmit}
