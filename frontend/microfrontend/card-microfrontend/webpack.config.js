@@ -9,7 +9,7 @@ const printCompilationMessage = require('./compilation.config.js');
 
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:8081/",
+    publicPath: "http://localhost:8084/",
   },
 
   resolve: {
@@ -17,7 +17,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 8081,
+    port: 8084,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
     onListening: function (devServer) {
@@ -57,34 +57,24 @@ module.exports = (_, argv) => ({
           loader: "babel-loader",
         },
       },
-      {
-        test: /\.svg/,
-        type: 'asset/resource'
-      },
     ],
   },
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "host",
+      name: "card_microfrontend",
       filename: "remoteEntry.js",
-      remotes: {
-        'auth_microfrontend': 'auth_microfrontend@http://localhost:8082/remoteEntry.js',
-        'profile_microfrontend': 'profile_microfrontend@http://localhost:8083/remoteEntry.js',
-        'cards_microfrontend': 'cards_microfrontend@http://localhost:8084/remoteEntry.js'
-      },
+      remotes: {},
       exposes: {
-
+        './CardsGrid': './src/components/CardsGrid.js'  
       },
       shared: {
         ...deps,
         react: {
-          eager: true,
           singleton: true,
           requiredVersion: deps.react,
         },
         "react-dom": {
-          eager: true,
           singleton: true,
           requiredVersion: deps["react-dom"],
         },

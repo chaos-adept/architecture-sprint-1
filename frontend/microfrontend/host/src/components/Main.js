@@ -1,26 +1,30 @@
-import React, { lazy, Suspense, useState, useEffect }  from "react";
-import Card from './Card';
+import { Suspense, lazy } from 'react';
 
-function Main({ cards, onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike, onCardDelete, ProfileInlineBlock, currentUser }) {
+const ProfileInlineBlock = lazy(() => import('profile_microfrontend/ProfileInlineBlock').catch(() => {
+  return { default: () => <div className='error'>Component is not available!</div> };
+}));
 
+const CardsGrid = lazy(() => import('cards_microfrontend/CardsGrid').catch(() => {
+  return { default: () => <div className='error'>Component is not available!</div> };
+}));
+
+const Main = ({ currentUser, onEditProfile, onAddPlace, onEditAvatar, onCardClick }) => {
   return (
     <main className="content">
-      <ProfileInlineBlock onEditProfile={onEditProfile} onAddPlace={onAddPlace} onEditAvatar={onEditAvatar} />
-      <section className="places page__section">
-        <ul className="places__list">
-          {cards.map((card) => (
-            <Card
-              key={card._id}
-              card={card}
-              onCardClick={onCardClick}
-              onCardLike={onCardLike}
-              onCardDelete={onCardDelete}
-            />
-          ))}
-        </ul>
-      </section>
+      <Suspense>
+        <ProfileInlineBlock 
+          currentUser={currentUser}
+          onEditProfile={onEditProfile}
+          onAddPlace={onAddPlace} 
+          onEditAvatar={onEditAvatar} />
+      </Suspense>
+      <Suspense>
+        <CardsGrid 
+          currentUser={currentUser}
+          onCardClick={onCardClick} />
+      </Suspense>
     </main>
   );
-}
+};
 
 export default Main;

@@ -1,7 +1,6 @@
 import React, { lazy, Suspense, useState, useEffect }  from "react";
 import { Route, useHistory, Switch } from "react-router-dom";
 import Header from "./Header";
-import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
@@ -10,6 +9,7 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import AddPlacePopup from "./AddPlacePopup";
 import InfoTooltip from "./InfoTooltip";
 import ProtectedRoute from "./ProtectedRoute";
+import Main from "./Main";
 import * as auth from "../utils/auth.js";
 
 
@@ -29,10 +29,6 @@ const EditAvatarPopup = lazy(() => import('profile_microfrontend/EditAvatarPopup
   return { default: () => <div className='error'>Component is not available!</div> };
 }));
 
-const ProfileInlineBlock = lazy(() => import('profile_microfrontend/ProfileInlineBlock').catch(() => {
-  return { default: () => <div className='error'>Component is not available!</div> };
-}));
-
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
     React.useState(false);
@@ -40,7 +36,6 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
     React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(null);
-  const [cards, setCards] = React.useState([]);
 
   // В корневом компоненте App создана стейт-переменная currentUser. Она используется в качестве значения для провайдера контекста.
   const [currentUser, setCurrentUser] = React.useState({});
@@ -59,11 +54,9 @@ function App() {
   // Запрос к API за информацией о пользователе и массиве карточек выполняется единожды, при монтировании.
   React.useEffect(() => {
     api
-      .getAppInfo()
-      .then(([cardData, userData]) => {
-        console.log(userData.data);
+      .getUserInfo()
+      .then((userData) => {
         setCurrentUser(userData.data);
-        setCards(cardData.data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -125,26 +118,6 @@ function App() {
     closeAllPopups();
   }
 
-  function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
-    api
-      .changeLikeCardStatus(card._id, !isLiked)
-      .then((newCard) => {
-        setCards((cards) =>
-          cards.map((c) => (c._id === card._id ? newCard : c))
-        );
-      })
-      .catch((err) => console.log(err));
-  }
-
-  function handleCardDelete(card) {
-    api
-      .removeCard(card._id)
-      .then(() => {
-        setCards((cards) => cards.filter((c) => c._id !== card._id));
-      })
-      .catch((err) => console.log(err));
-  }
 
   function handleAddPlaceSubmit(newCard) {
     api
@@ -227,17 +200,16 @@ function App() {
           <ProtectedRoute
             exact
             path="/"
-            component={Main}
-            ProfileInlineBlock={(props) => <Suspense> <ProfileInlineBlock currentUser={currentUser} {...props} /> </Suspense>}
-            cards={cards}
-            onEditProfile={handleEditProfileClick}
-            onAddPlace={handleAddPlaceClick}
-            onEditAvatar={handleEditAvatarClick}
-            onCardClick={handleCardClick}
-            onCardLike={handleCardLike}
-            onCardDelete={handleCardDelete}
             loggedIn={isLoggedIn}
-          />
+          >
+              <Main
+                currentUser={currentUser}
+                onEditProfile={handleEditProfileClick}
+                onAddPlace={handleAddPlaceClick}
+                onEditAvatar={handleEditAvatarClick}
+                onCardClick={handleCardClick}
+              />
+            </ProtectedRoute>
           <Route path="/signup">
             <Suspense>
               <Register />
