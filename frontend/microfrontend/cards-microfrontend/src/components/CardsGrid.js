@@ -8,8 +8,6 @@ function CardsGrid({ currentUser, onCardClick }) {
 
     const [cards, setCards] = React.useState([]);
 
-    console.log("cards grid");
-
     React.useEffect(() => {
         api
           .getCardList()

@@ -1,5 +1,5 @@
 {
-  "name": "card-microfrontend",
+  "name": "cards-microfrontend",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production",

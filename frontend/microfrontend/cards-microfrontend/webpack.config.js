@@ -62,7 +62,7 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "card_microfrontend",
+      name: "cards_microfrontend",
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
@@ -79,9 +79,6 @@ module.exports = (_, argv) => ({
           requiredVersion: deps["react-dom"],
         },
       },
-    }),
-    new HtmlWebPackPlugin({
-      template: "./src/index.html",
     }),
     new Dotenv()
   ],
