@@ -66,7 +66,7 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "host",
+      name: "frontend",
       filename: "remoteEntry.js",
       remotes: {
         'auth_microfrontend': 'auth_microfrontend@http://localhost:8082/remoteEntry.js',
@@ -88,6 +88,16 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
+        "react-router": {
+          eager: true,
+          singleton: true,
+          requiredVersion: deps["react-router"],
+        },
+        "react-router-dom": {
+          eager: true,
+          singleton: true,
+          requiredVersion: deps["react-router-dom"],
+        }
       },
     }),
     new HtmlWebPackPlugin({

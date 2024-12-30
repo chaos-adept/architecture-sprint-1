@@ -1,6 +1,5 @@
 import React from 'react';
 import '../blocks/auth-form/auth-form.css';
-import { Link } from 'react-router-dom';
 import { register } from '../utils/auth';
 
 function Register ({}){
