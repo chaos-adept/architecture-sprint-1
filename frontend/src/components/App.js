@@ -43,6 +43,7 @@ export function App() {
   const [tooltipStatus, setTooltipStatus] = React.useState("");
 
   const [jwt, setJwt] = useState(localStorage.getItem("jwt"));
+  const isLoggedIn = !!jwt;
 
   const history = useHistory();
 
@@ -159,8 +160,8 @@ export function App() {
       <div className="page__content">
         <Header email={currentUser.email} onSignOut={onSignOut} />
         <Switch>
-          <ProtectedRoute 
-            loggedIn={!!jwt} path="/" component={() => 
+        <ProtectedRoute 
+            exact loggedIn={isLoggedIn} path="/" component={() => 
               <Main
                   currentUser={currentUser}
                   onEditProfile={handleEditProfileClick}
@@ -175,8 +176,8 @@ export function App() {
           </Route>
           <Route path="/signin">
             <Suspense>
-              <Login />
-            </Suspense>
+                <Login />
+              </Suspense>
           </Route>
         </Switch>
         <Footer />
