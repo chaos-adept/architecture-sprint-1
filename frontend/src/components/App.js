@@ -1,12 +1,12 @@
 import React, { lazy, Suspense, useState, useEffect }  from "react";
-import { Route, useNavigate, Routes } from "react-router-dom";
+import { Route, useHistory, Switch } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
 import InfoTooltip from "./InfoTooltip";
-import ProtectedRoute from "./ProtectedRoute";
 import Main from "./Main";
 import * as auth from "../utils/auth.js";
+import ProtectedRoute from "./ProtectedRoute.js";
 
 
 const Login = lazy(() => import('auth_microfrontend/Login').catch(() => {
@@ -42,13 +42,9 @@ export function App() {
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = React.useState(false);
   const [tooltipStatus, setTooltipStatus] = React.useState("");
 
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  //В компоненты добавлены новые стейт-переменные: email — в компонент App
-  const [email, setEmail] = React.useState("");
-
   const [jwt, setJwt] = useState(localStorage.getItem("jwt"));
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
 
   // при монтировании App описан эффект, проверяющий наличие токена и его валидности
@@ -59,19 +55,15 @@ export function App() {
         .checkToken(token)
         .then((res) => {
           setCurrentUser(res.data);
-          setEmail(res.data.email);
-          setIsLoggedIn(true);
-          navigate("/");
+          history.push("/");
         })
         .catch((err) => {
           localStorage.removeItem("jwt");
-          navigate("/signin");
+          history.push("/signin");
           console.log(err);
         });
-    } else {
-      navigate("/signin");
     }
-  }, [navigate, jwt]);
+  }, [history, jwt]);
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
@@ -115,15 +107,14 @@ export function App() {
   function onHandleRegister() {
     setTooltipStatus("success");
     setIsInfoToolTipOpen(true);
-    navigate("/signin");
+    history.push("/signin");
   }
 
   function onSignOut() {
     // при вызове обработчика onSignOut происходит удаление jwt
     localStorage.removeItem("jwt");
-    setIsLoggedIn(false);
     // После успешного вызова обработчика onSignOut происходит редирект на /signin
-    navigate("/signin");
+    history.push("/signin");
   }
 
   const handleJwtChange = ({detail}) => { // Эта функция получает нотификации о событиях изменения jwt
@@ -137,23 +128,12 @@ export function App() {
     return () => removeEventListener("jwt-change", handleJwtChange) // Этот код удаляет подписку на нотификации о событиях изменения localStorage, когда в ней пропадает необходимость
   }, []);
 
-  function handleOnLogin({ email }) {
-    setIsLoggedIn(true);
-    setEmail(email);
-    navigate("/");
-  }
-
   function handleFailedOperation({}) {
     setTooltipStatus("fail");
     setIsInfoToolTipOpen(true);
   }
 
   //todo подумать над тем что бы убрать event, и перевести на калббеки как более простые решения
-  useEffect(() => {
-    addEventListener("on-login", handleOnLogin);
-    return () => removeEventListener("on-login", handleOnLogin)
-  }, []);
-
   useEffect(() => {
     addEventListener("on-error-login", handleFailedOperation); 
     return () => removeEventListener("on-error-login", handleFailedOperation)
@@ -177,24 +157,28 @@ export function App() {
 
   return (<>
       <div className="page__content">
-        <Header email={email} onSignOut={onSignOut} />
-        <Routes>
-          <Route path="/" element={
-            <Main
-              currentUser={currentUser}
-              onEditProfile={handleEditProfileClick}
-              onAddPlace={handleAddPlaceClick}
-              onEditAvatar={handleEditAvatarClick}
-            />} />
-          <Route path="/signup" element={
+        <Header email={currentUser.email} onSignOut={onSignOut} />
+        <Switch>
+          <ProtectedRoute 
+            loggedIn={!!jwt} path="/" component={() => 
+              <Main
+                  currentUser={currentUser}
+                  onEditProfile={handleEditProfileClick}
+                  onAddPlace={handleAddPlaceClick}
+                  onEditAvatar={handleEditAvatarClick}
+              />}>
+          </ProtectedRoute>
+          <Route path="/signup">
             <Suspense>
               <Register />
-            </Suspense>} />
-          <Route path="/signin" element={
+            </Suspense>
+          </Route>
+          <Route path="/signin">
             <Suspense>
               <Login />
-            </Suspense>} />
-        </Routes>
+            </Suspense>
+          </Route>
+        </Switch>
         <Footer />
         <PopupWithForm
           isOpen={isEditProfilePopupOpen} 
@@ -202,9 +186,9 @@ export function App() {
           onSubmit={handleSubmitProfileClick}
           onClose={closeAllPopups}
         >
-            <Suspense>
-              <EditProfilePopup currentUser={currentUser} />
-            </Suspense>
+          <Suspense>
+            <EditProfilePopup currentUser={currentUser} />
+          </Suspense>
         </PopupWithForm>
         <PopupWithForm
           isOpen={isAddPlacePopupOpen} 
@@ -227,8 +211,8 @@ export function App() {
         >
           <Suspense>
             <EditAvatarPopup
-                      isOpen={isEditAvatarPopupOpen}
-                      onClose={closeAllPopups}
+              isOpen={isEditAvatarPopupOpen}
+              onClose={closeAllPopups}
                     />
           </Suspense>
         </PopupWithForm>

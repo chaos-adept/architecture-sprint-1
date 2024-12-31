@@ -15,9 +15,10 @@ function Register ({}){
         email
       }));  
     })
-    .catch((err) => {
-      setTooltipStatus("fail");
-      setIsInfoToolTipOpen(true);
+    .catch((error) => {
+      dispatchEvent(new CustomEvent("on-error-register", {
+        error
+      }));
     });
   }
   return (

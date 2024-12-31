@@ -16,7 +16,7 @@ function Login ({ onLogin }){
         detail: { token: data.token }
       }));
       dispatchEvent(new CustomEvent("on-login", {
-        email
+        data
       }));      
     }).catch(error => {
       dispatchEvent(new CustomEvent("on-error-login", {
