@@ -10,7 +10,7 @@ import { DB_ADDRESS } from './config';
 import errorHandler from './middlewares/error-handler';
 import routes from './routes';
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3100 } = process.env;
 const app = express();
 mongoose.connect(DB_ADDRESS);
 

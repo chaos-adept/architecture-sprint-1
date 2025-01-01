@@ -18,7 +18,7 @@ const login = (req: Request, res: Response, next: NextFunction) => {
       const token = jwt.sign({ _id: user._id }, JWT_SECRET);
 
       res
-        .send({ data: {user: user.toJSON(), token: token } });
+        .send({ data: { user: user.toJSON(), token } });
     })
     .catch(next);
 };

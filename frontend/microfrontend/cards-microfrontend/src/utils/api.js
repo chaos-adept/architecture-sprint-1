@@ -15,7 +15,7 @@ class Api {
   getCardList() {
     return fetch(`${this._address}/cards`, {
       headers: {
-        authorization: this._token,
+        'Authorization': `Bearer ${this._token}`,
       },
     })
       .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
@@ -25,7 +25,7 @@ class Api {
     return fetch(`${this._address}/cards`, {
       method: 'POST',
       headers: {
-        authorization: this._token,
+        'Authorization': `Bearer ${this._token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -40,7 +40,7 @@ class Api {
     return fetch(`${this._address}/cards/${cardID}`, {
       method: 'DELETE',
       headers: {
-        authorization: this._token,
+        'Authorization': `Bearer ${this._token}`,
       },
     })
       .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
@@ -49,7 +49,7 @@ class Api {
   getUserInfo() {
     return fetch(`${this._address}/users/me`, {
       headers: {
-        authorization: this._token,
+        'Authorization': `Bearer ${this._token}`,
       },
     })
       .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
@@ -59,7 +59,7 @@ class Api {
     return fetch(`${this._address}/users/me`, {
       method: 'PATCH',
       headers: {
-        authorization: this._token,
+        'Authorization': `Bearer ${this._token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -74,7 +74,7 @@ class Api {
     return fetch(`${this._address}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
-        authorization: this._token,
+        'Authorization': `Bearer ${this._token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -89,7 +89,7 @@ class Api {
     return fetch(`${this._address}/cards/like/${cardID}`, {
       method: like ? 'PUT' : 'DELETE',
       headers: {
-        authorization: this._token,
+        'Authorization': `Bearer ${this._token}`,
         'Content-Type': 'application/json',
       },
     })
@@ -98,7 +98,7 @@ class Api {
 }
 
 const api = new Api({
-  address: 'http://localhost:3000'
+  address: 'http://localhost:3100'
 });
 
 export default api;
