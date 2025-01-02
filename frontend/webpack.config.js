@@ -70,8 +70,8 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       remotes: {
         'auth_microfrontend': 'auth_microfrontend@http://localhost:3001/remoteEntry.js',
-        'profile_microfrontend': 'profile_microfrontend@http://localhost:3002/remoteEntry.js',
-        'cards_microfrontend': 'cards_microfrontend@http://localhost:3003/remoteEntry.js'
+        'cards_microfrontend': 'cards_microfrontend@http://localhost:3002/remoteEntry.js',
+        'profile_microfrontend': 'profile_microfrontend@http://localhost:3003/remoteEntry.js'
       },
       exposes: {
 
