@@ -8,9 +8,14 @@ interface JwtPayload {
 }
 
 const auth = (req: Request, res: Response, next: NextFunction) => {
-  const token = req.cookies.jwt;
   let payload: JwtPayload | null = null;
   try {
+    const headerVal:any = req.headers.authorization;
+    if (headerVal === undefined) {
+      throw new Error('no authorization header');
+    }
+    const token = headerVal.replace('Bearer ', '');
+
     payload = jwt.verify(token, JWT_SECRET) as JwtPayload;
     req.user = payload;
     next();

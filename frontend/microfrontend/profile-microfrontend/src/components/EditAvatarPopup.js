@@ -1,29 +1,35 @@
-import React from 'react';
-import PopupWithForm from './PopupWithForm';
+import React, { useEffect } from 'react';
+import api from "../utils/api";
 
-function EditAvatarPopup({ isOpen, onUpdateAvatar, onClose }) {
+function EditAvatarPopup({}) {
   const inputRef = React.useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    onUpdateAvatar({
+    api
+    .setUserAvatar({
       avatar: inputRef.current.value,
-    });
+    })
+    .then(({data}) => {
+      dispatchEvent(new CustomEvent("on-profile-updated", {
+        detail: data}));
+    })
+    .catch((err) => console.log(err));
   }
 
-  return (
-    <PopupWithForm
-      isOpen={isOpen} onSubmit={handleSubmit} onClose={onClose} title="Обновить аватар" name="edit-avatar"
-    >
+  useEffect(()=>{
+    addEventListener("on-submit-avatar", handleSubmit);
+    return () => removeEventListener("on-submit-avatar", handleSubmit);
+  });
 
+  return (
       <label className="popup__label">
         <input type="url" name="avatar" id="owner-avatar"
                className="popup__input popup__input_type_description" placeholder="Ссылка на изображение"
                required ref={inputRef} />
         <span className="popup__error" id="owner-avatar-error"></span>
       </label>
-    </PopupWithForm>
   );
 }
 

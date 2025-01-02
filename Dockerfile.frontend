@@ -4,14 +4,20 @@ ENV NODE_ENV development
 
 WORKDIR /app
 
+RUN apt-get update && apt-get install curl -y
+
+RUN npx playwright install --with-deps chromium
+
+RUN npm i -g jest
+
 COPY package.json package-lock.json ./
 
-RUN npm i \
-    && npm i -g jest \
-    && npx playwright install --with-deps chromium
+RUN npm i
 
 COPY . .
 
-CMD [ "yarn", "start" ]
+RUN npm run build
+
+CMD [ "yarn", "build:start" ]
 
 EXPOSE 3000
