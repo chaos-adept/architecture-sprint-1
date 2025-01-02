@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.1 Chrome/128.0.6613.186 Electron/32.2.6 Safari/537.36" version="25.0.1">
   <diagram name="DF" id="BleSmaJVXqo2yb7Co1eL">
-    <mxGraphModel dx="2566" dy="1405" grid="0" gridSize="10" guides="0" tooltips="0" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="4135" dy="2388" grid="0" gridSize="10" guides="0" tooltips="0" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1148,6 +1148,15 @@
         <mxCell id="cKbgiC5qh_IXnBO1eU4K-77" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Пользователь.Активен&lt;/font&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" parent="_rld_r7fkfNYqBcw7iVo-41" vertex="1">
           <mxGeometry x="21" y="175" width="147" height="21" as="geometry" />
         </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-220" value="" style="group" vertex="1" connectable="0" parent="_rld_r7fkfNYqBcw7iVo-41">
+          <mxGeometry x="32" y="1" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-221" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-220">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-222" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;i&gt;Postgresql&lt;/i&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-220">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
         <mxCell id="_rld_r7fkfNYqBcw7iVo-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-430.5" y="190" as="targetPoint" />
@@ -1266,6 +1275,15 @@
         </mxCell>
         <mxCell id="_rld_r7fkfNYqBcw7iVo-166" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Действия&lt;/font&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-115">
           <mxGeometry x="107" y="287" width="111" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-191" value="" style="group" vertex="1" connectable="0" parent="_rld_r7fkfNYqBcw7iVo-115">
+          <mxGeometry x="100" y="189" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-192" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-191">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-193" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;i&gt;Postgresql&lt;/i&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-191">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
         </mxCell>
         <mxCell id="_rld_r7fkfNYqBcw7iVo-131" value="" style="group" vertex="1" connectable="0" parent="1">
           <mxGeometry x="2931" y="608" width="331" height="267" as="geometry" />
@@ -1419,6 +1437,171 @@
         </mxCell>
         <mxCell id="_rld_r7fkfNYqBcw7iVo-189" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Times New Roman&quot;&gt;Нотиф.Адресат&lt;/font&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" vertex="1" parent="1">
           <mxGeometry x="-897" y="624" width="150" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-195" value="" style="group;fontSize=8;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-981" y="217" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-196" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-195">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-197" value="&lt;i style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Python/Django&lt;/font&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-195">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-198" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="2157" y="637" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-199" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-198">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-200" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;i&gt;Postgresql&lt;/i&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-198">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-201" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1772" y="788" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-202" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-201">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-203" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;i&gt;Postgresql&lt;/i&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-201">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-204" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1406" y="514" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-205" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-204">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-206" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;i&gt;Postgresql&lt;/i&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-204">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-207" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1018" y="526" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-208" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-207">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-209" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;i&gt;Postgresql&lt;/i&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-207">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-210" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="641" y="509" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-211" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-210">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-212" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;i&gt;Postgresql&lt;/i&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-210">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-213" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="267" y="619" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-214" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-213">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-215" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;i&gt;Postgresql&lt;/i&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-213">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-216" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-114" y="484" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-217" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-216">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-218" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;i&gt;Postgresql&lt;/i&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-216">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-223" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-879" y="494" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-224" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-223">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-225" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;i&gt;Postgresql&lt;/i&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-223">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-226" value="" style="group;fontSize=8;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-598" y="216" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-227" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-226">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-228" value="&lt;i style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Python/Django&lt;/font&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-226">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-229" value="" style="group;fontSize=8;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-225" y="211" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-230" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-229">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-231" value="&lt;i style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Python/Django&lt;/font&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-229">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-232" value="" style="group;fontSize=8;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="158" y="208" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-233" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-232">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-234" value="&lt;i style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Python/Django&lt;/font&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-232">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-235" value="" style="group;fontSize=8;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="531" y="211" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-236" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-235">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-237" value="&lt;i style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Python/Django&lt;/font&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-235">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-238" value="" style="group;fontSize=8;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="917" y="203" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-239" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-238">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-240" value="&lt;i style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Python/Django&lt;/font&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-238">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-241" value="" style="group;fontSize=8;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1289" y="203" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-242" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-241">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-243" value="&lt;i style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Python/Django&lt;/font&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-241">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-244" value="" style="group;fontSize=8;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1664" y="203" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-245" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-244">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-246" value="&lt;i style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Python/Django&lt;/font&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-244">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-247" value="" style="group;fontSize=8;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="2052" y="207" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-248" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-247">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-249" value="&lt;i style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Python/Django&lt;/font&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-247">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-250" value="" style="group;fontSize=8;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="2554" y="59" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-251" value="&lt;p style=&quot;margin: 0px 0px 0px 13px; text-indent: -13px; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-variant-position: normal; font-stretch: normal; font-size: 14px; line-height: normal; color: rgb(14, 14, 14); text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF77BF;strokeColor=none;arcSize=33;" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-250">
+          <mxGeometry y="13" width="120" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-252" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;i&gt;KrakenD&lt;/i&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-250">
+          <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-190" value="&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;Общее описание подхода к проектированию и диаграмме&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;&amp;nbsp;Данная диаграмма представляет высокоуровневую схему,&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;демонстрирующую разделение монолита на отдельные сервисы.&lt;br&gt;&amp;nbsp;Изначально монолит содержал большое количество разнородных функций, поэтому невозможно было отобразить все потоки данных в удобочитаемом формате.&lt;br&gt;&amp;nbsp;Основной акцент был сделан на разделение областей приложения, а также на упрощение схем возможных взаимодействий для создания более понятной диаграммы.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Это решение демонстрирует микросервисную архитектуру, основанную на хореографии сервисов, взаимодействующих через API Gateway, который также отвечает за авторизацию и связь с внешними системами.&lt;/font&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;strokeColor=#FF0000;align=left;" vertex="1" parent="1">
+          <mxGeometry x="-1227" y="-416" width="594" height="321" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

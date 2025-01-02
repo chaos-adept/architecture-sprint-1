@@ -9,7 +9,7 @@ const printCompilationMessage = require('./compilation.config.js');
 
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:8081/",
+    publicPath: "http://localhost:3000/",
   },
 
   resolve: {
@@ -17,7 +17,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 8081,
+    port: 3000,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
     onListening: function (devServer) {
@@ -69,9 +69,9 @@ module.exports = (_, argv) => ({
       name: "frontend",
       filename: "remoteEntry.js",
       remotes: {
-        'auth_microfrontend': 'auth_microfrontend@http://localhost:8082/remoteEntry.js',
-        'profile_microfrontend': 'profile_microfrontend@http://localhost:8083/remoteEntry.js',
-        'cards_microfrontend': 'cards_microfrontend@http://localhost:8084/remoteEntry.js'
+        'auth_microfrontend': 'auth_microfrontend@http://localhost:3001/remoteEntry.js',
+        'profile_microfrontend': 'profile_microfrontend@http://localhost:3002/remoteEntry.js',
+        'cards_microfrontend': 'cards_microfrontend@http://localhost:3003/remoteEntry.js'
       },
       exposes: {
 

@@ -53,6 +53,45 @@ services:
     environment:
           CI: true
 
+  frontend-auth-microfrontend:
+    build:
+      context: frontend/microfrontend/auth-microfrontend
+      dockerfile: ../../../Dockerfile.frontend
+    ports:
+      - 3001:3001
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/remoteEntry.js"]
+      interval: 15s
+      retries: 15
+      start_period: 10s
+      timeout: 10s
+
+  frontend-cards-microfrontend:
+    build:
+      context: frontend/microfrontend/cards-microfrontend
+      dockerfile: ../../../Dockerfile.frontend
+    ports:
+      - 3002:3002
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3002/remoteEntry.js"]
+      interval: 15s
+      retries: 15
+      start_period: 10s
+      timeout: 10s
+
+  frontend-profile-microfrontend:
+    build:
+      context: frontend/microfrontend/profile-microfrontend
+      dockerfile: ../../../Dockerfile.frontend
+    ports:
+      - 3003:3003
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3003/remoteEntry.js"]
+      interval: 5s
+      retries: 15
+      start_period: 10s
+      timeout: 10s            
+
   frontend:
     build:
       context: frontend
@@ -62,3 +101,15 @@ services:
     depends_on:
       backend:
         condition: service_healthy
+      frontend-auth-microfrontend:
+        condition: service_healthy   
+      frontend-cards-microfrontend:
+        condition: service_healthy    
+      frontend-profile-microfrontend:
+        condition: service_healthy                         
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 5s
+      retries: 15
+      start_period: 10s
+      timeout: 10s
