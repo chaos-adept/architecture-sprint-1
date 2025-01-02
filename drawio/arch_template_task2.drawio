@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.1 Chrome/128.0.6613.186 Electron/32.2.6 Safari/537.36" version="25.0.1">
   <diagram name="DF" id="BleSmaJVXqo2yb7Co1eL">
-    <mxGraphModel dx="2566" dy="1405" grid="0" gridSize="10" guides="0" tooltips="0" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3628" dy="2070" grid="0" gridSize="10" guides="0" tooltips="0" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -332,6 +332,9 @@
         <mxCell id="cKbgiC5qh_IXnBO1eU4K-128" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;[Транзакция.Статус]&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;labelBackgroundColor=none;fontColor=#B8B8B8;" parent="1" vertex="1">
           <mxGeometry x="2930" y="490" width="160" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-261" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="aNh6FEuhw9lsT8rE3H5J-66" target="q8j3cbX1KV_NrlSTSJdW-124">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="aNh6FEuhw9lsT8rE3H5J-66" value="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=1;fillColor=#FF77BF;" parent="1" vertex="1">
           <mxGeometry x="2720" y="190" width="23" height="23" as="geometry" />
         </mxCell>
@@ -346,6 +349,11 @@
             <mxPoint x="2735" y="440" as="sourcePoint" />
             <mxPoint x="3280" y="-25" as="targetPoint" />
             <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-264" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="cKbgiC5qh_IXnBO1eU4K-140">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2386" y="442" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="cKbgiC5qh_IXnBO1eU4K-140" value="4" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;rounded=1;fillColor=#FF77BF;" parent="1" vertex="1">
@@ -623,7 +631,7 @@
           <mxGeometry x="1" y="6" width="206" height="30" as="geometry" />
         </mxCell>
         <mxCell id="BZBJQn5B5M7l6MrAMs_o-13" value="" style="group" parent="q8j3cbX1KV_NrlSTSJdW-105" vertex="1" connectable="0">
-          <mxGeometry x="10" y="99" width="309" height="39" as="geometry" />
+          <mxGeometry x="10" y="96" width="309" height="39" as="geometry" />
         </mxCell>
         <mxCell id="Tz6aEU4ManMyac2rpAqn-69" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1C57CD;strokeColor=none;" parent="BZBJQn5B5M7l6MrAMs_o-13" vertex="1">
           <mxGeometry width="309" height="39" as="geometry" />
@@ -635,7 +643,7 @@
           <mxGeometry x="2" y="4.5" width="188" height="30" as="geometry" />
         </mxCell>
         <mxCell id="BZBJQn5B5M7l6MrAMs_o-25" value="" style="group" parent="q8j3cbX1KV_NrlSTSJdW-105" vertex="1" connectable="0">
-          <mxGeometry x="10" y="150" width="309" height="39" as="geometry" />
+          <mxGeometry x="10" y="145" width="309" height="39" as="geometry" />
         </mxCell>
         <mxCell id="Tz6aEU4ManMyac2rpAqn-60" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1C57CD;strokeColor=none;" parent="BZBJQn5B5M7l6MrAMs_o-25" vertex="1">
           <mxGeometry width="309" height="39" as="geometry" />
@@ -1231,7 +1239,7 @@
             <mxPoint x="2646" y="941.0952904110864" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="_rld_r7fkfNYqBcw7iVo-87" value="&lt;b&gt;Заказы&lt;/b&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;strokeColor=#FF0000;" vertex="1" parent="1">
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-87" value="&lt;b&gt;Заказы&lt;/b&gt;&lt;br&gt;управляет заказами, обвдяляет их статус после оплаты" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;strokeColor=#FF0000;" vertex="1" parent="1">
           <mxGeometry x="1678" y="1010" width="313" height="110" as="geometry" />
         </mxCell>
         <mxCell id="_rld_r7fkfNYqBcw7iVo-88" value="&lt;b&gt;Сервис платежей&lt;/b&gt;&lt;br&gt;Работа внешними сервисами оплаты, работа со статусами операций, иницирование обновления заказа и тп&lt;br&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;З%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%26lt%3Bb%26gt%3B%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%26lt%3B%2Fb%26gt%3B%22%20style%3D%22shape%3Dnote%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3BbackgroundOutline%3D1%3BdarkOpacity%3D0.05%3BstrokeColor%3D%23FF0000%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%221677%22%20y%3D%22956%22%20width%3D%22313%22%20height%3D%22110%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3Eававы&lt;/span&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;strokeColor=#FF0000;" vertex="1" parent="1">
@@ -1600,8 +1608,8 @@
         <mxCell id="_rld_r7fkfNYqBcw7iVo-252" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;i&gt;KrakenD&lt;/i&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-250">
           <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
         </mxCell>
-        <mxCell id="_rld_r7fkfNYqBcw7iVo-190" value="&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;Общее описание подхода к проектированию и диаграмме&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;&amp;nbsp;Данная диаграмма представляет высокоуровневую схему,&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;демонстрирующую разделение монолита на отдельные сервисы.&lt;br&gt;&amp;nbsp;Изначально монолит содержал большое количество разнородных функций, поэтому невозможно было отобразить все потоки данных в удобочитаемом формате.&lt;br&gt;&amp;nbsp;Основной акцент был сделан на разделение областей приложения, а также на упрощение схем возможных взаимодействий для создания более понятной диаграммы.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Это решение демонстрирует микросервисную архитектуру, основанную на хореографии сервисов, взаимодействующих через API Gateway, который также отвечает за авторизацию и связь с внешними системами.&lt;/font&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;strokeColor=#FF0000;align=left;" vertex="1" parent="1">
-          <mxGeometry x="-1227" y="-416" width="594" height="321" as="geometry" />
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-190" value="&lt;p&gt;&lt;font style=&quot;font-size: 21px;&quot;&gt;Общее описание подхода к проектированию и диаграммы&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 21px;&quot;&gt;Диаграмма иллюстрирует процесс разделения монолитной системы на микросервисы. Исходный монолит включал множество разнородных функций, что затрудняло создание удобочитаемой схемы потоков данных.&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 21px;&quot;&gt;Ключевым этапом стало выделение областей приложения и упрощение взаимодействий между ними для обеспечения ясности и логической структуры диаграммы.&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 21px;&quot;&gt;Предложенное решение демонстрирует микросервисную архитектуру с хореографией сервисов, которые взаимодействуют через API Gateway. API Gateway выполняет функции авторизации и обеспечивает связь с внешними системами.&lt;/font&gt;&lt;/p&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;strokeColor=#FF0000;align=left;" vertex="1" parent="1">
+          <mxGeometry x="-1189" y="-378" width="885" height="357" as="geometry" />
         </mxCell>
         <mxCell id="_rld_r7fkfNYqBcw7iVo-253" value="" style="group;fontSize=8;" vertex="1" connectable="0" parent="1">
           <mxGeometry x="2483" y="895" width="120" height="49" as="geometry" />
@@ -1620,6 +1628,21 @@
         </mxCell>
         <mxCell id="_rld_r7fkfNYqBcw7iVo-259" value="&lt;i style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Python/Django&lt;/font&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;shadow=0;fontSize=23;fontStyle=1" vertex="1" parent="_rld_r7fkfNYqBcw7iVo-257">
           <mxGeometry x="22.451612903225804" width="68.90322580645162" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-262" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.006;exitY=0.219;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;dashPattern=12 12;entryX=1.008;entryY=0.054;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="aNh6FEuhw9lsT8rE3H5J-120" target="q8j3cbX1KV_NrlSTSJdW-124">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2571" y="292" as="sourcePoint" />
+            <mxPoint x="2391" y="271" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-263" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.001;entryY=0.278;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="cKbgiC5qh_IXnBO1eU4K-139" target="q8j3cbX1KV_NrlSTSJdW-124">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_rld_r7fkfNYqBcw7iVo-265" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.002;exitY=0.532;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="aNh6FEuhw9lsT8rE3H5J-120">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2571" y="407" as="sourcePoint" />
+            <mxPoint x="2386" y="519" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
